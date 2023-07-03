@@ -1,0 +1,20 @@
+{% extends 'manager/main.html' %}
+
+{% block content %}
+
+<form method="POST">
+  {% csrf_token %}
+  {{formset.management_form}}
+  <ul>
+    {% for form in formset %}
+    <li>{{form}}</li>
+    {% endfor %}
+  </ul>
+
+
+
+  <input type="submit" name="Confirm">
+
+</form>
+
+{% endblock %}

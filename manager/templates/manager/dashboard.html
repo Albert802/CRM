@@ -1,0 +1,65 @@
+{% extends 'manager/main.html' %}
+
+{% block content %}
+
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Date Ordered</th>
+    <th>Status</th>
+    <th>Update</th>
+    <th>Remove</th>
+  </tr>
+    {% for i in order %}
+  <tr>
+   <td>{{i.product.name}}</td>
+   <td>{{i.date_created}}</td>
+   <td>{{i.status}}</td>
+   <td><a href="{% url 'update' i.id %}">Click</a></td>
+   <td><a href="{% url 'delete' i.id %}">Click</a></td>
+  </tr>
+    {% endfor %}
+</table>
+
+<button class="button button2"><a href="#">Create Customer</a></button>
+
+<table>
+  <tr>
+    <th>Customer</th>
+    <th>phone number</th>
+
+  </tr>
+    {% for i in customer %}
+  <tr>
+  <td><a href="{% url 'customer' i.id %}">View</a> </td>
+   <td>{{i.name}}</td>
+   <td>{{i.phone}}</td>
+
+  </tr>
+    {% endfor %}
+
+</table>
+
+<hr>
+
+
+<table>
+  <tr>
+    <th>Total Orders</th>
+    <th>Delivered Orders</th>
+    <th>Orders Pending</th>
+
+  </tr>
+  <tr>
+   <td>{{total}}</td>
+   <td>{{order_pending}}</td>
+   <td>{{order_delivered}}</td>
+
+  </tr>
+
+</table>
+
+
+
+{% endblock %}

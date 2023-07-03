@@ -1,0 +1,56 @@
+{% extends 'manager/main.html' %}
+
+{% block content %}
+
+<hr>
+
+<table>
+  <tr>
+    <th>Total Orders</th>
+    <th>Delivered Orders</th>
+    <th>Orders Pending</th>
+
+  </tr>
+  <tr>
+   <td>{{total}}</td>
+   <td>{{order_pending}}</td>
+   <td>{{order_delivered}}</td>
+
+  </tr>
+
+</table>
+
+<hr>
+<form method="get">
+    {{myfilter.form}}
+
+    <button class="button button2" type="submit">Search</button>
+
+</form>
+
+
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Category</th>
+    <th>Date Ordered</th>
+    <th>Status</th>
+
+  </tr>
+    {% for i in order %}
+  <tr>
+   <td>{{i.product.name}}</td>
+   <td>{{i.product.category}}</td>
+   <td>{{i.date_created}}</td>
+   <td>{{i.status}}</td>
+
+
+  </tr>
+    {% endfor  %}
+
+</table>
+
+
+
+{% endblock %}

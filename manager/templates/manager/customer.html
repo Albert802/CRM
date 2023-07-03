@@ -1,0 +1,81 @@
+{% extends 'manager/main.html' %}
+
+{% block content %}
+
+<hr>
+<table>
+    <tr>
+        <th>Customer: {{customer.name}}
+
+        <button class="button button2"><a href="#">Update</a></button>
+        <button class="button button2"><a href="{% url 'create' customer.id %}">Create Order</a></button>
+
+        </th>
+    </tr>
+</table>
+
+<hr>
+<table>
+    <tr>
+        <th>Contact Info:
+
+        <h3>Phone: {{customer.phone}} </h3>
+        <h3>Email: {{customer.email}}</h3>
+
+        </th>
+    </tr>
+</table>
+<hr>
+<hr>
+<table>
+    <tr>
+        <th>Total Orders: {{total}}
+
+
+
+        </th>
+    </tr>
+</table>
+<hr>
+
+
+
+
+
+
+
+
+<form method="get">
+    {{myfilter.form}}
+
+    <button class="button button2" type="submit">Search</button>
+
+</form>
+
+
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Category</th>
+    <th>Date Ordered</th>
+    <th>Status</th>
+    <th>Update</th>
+    <th>Remove</th>
+  </tr>
+    {% for i in order %}
+  <tr>
+   <td>{{i.product.name}}</td>
+   <td>{{i.product.category}}</td>
+   <td>{{i.date_created}}</td>
+   <td>{{i.status}}</td>
+   <td><a href="#">CLICK</a></td>
+   <td><a href="#">CLICK</a></td>
+
+  </tr>
+    {% endfor  %}
+
+</table>
+
+
+{% endblock %}
